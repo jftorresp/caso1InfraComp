@@ -20,7 +20,6 @@ public class Mensaje {
 			try {
 				System.out.println("Se duerme el cliente en el mensaje");
 				this.wait();
-				System.out.println("Se duerme el cliente en el mensaje");
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

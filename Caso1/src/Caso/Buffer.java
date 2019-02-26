@@ -32,6 +32,7 @@ public class Buffer {
 			}
 		}
 		System.out.println("El buffer no está lleno");
+		
 		synchronized (i){
 			buff.add(i);
 			System.out.println("Se añadió el mensaje " + i.darMensaje());

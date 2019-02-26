@@ -30,7 +30,7 @@ public class Cliente extends Thread{
 			
 		}
 		
-		System.out.println("Se acabó por completo");
+		System.out.println("Se acaban por completo los mensajes del cliente " + this);
 		finalT = true;
 	}
 
