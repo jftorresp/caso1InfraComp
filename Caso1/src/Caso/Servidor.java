@@ -18,12 +18,12 @@ public class Servidor extends Thread {
 //			System.out.println("Voy a retirar un mensaje plis");
 			mensaje = buffer.retirar();
 			if(mensaje!=null){
-				System.out.println("Retiré el mensaje " + mensaje.darMensaje() + " y lo voy a responder");
+				System.out.println("Retirï¿½Ec el mensaje " + mensaje.darMensaje() + " y lo voy a responder");
 				mensaje.responder();
 				mensaje.despertar();
 			}
 			
-			yield();
+			Thread.yield();
 		}
 	}
 }

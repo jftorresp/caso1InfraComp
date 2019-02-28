@@ -10,32 +10,32 @@ public class Mensaje {
 
 	public void responder()
 	{
-		System.out.println("Respondí el mensaje");
+		System.out.println("Respondï¿½ el mensaje");
 		n++;
 		System.out.println(n);
 	}
 
 	public void dormir ()
 	{
-			try {
-				System.out.println("Se duerme el cliente en el mensaje");
-				this.wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+		try {
+			System.out.println("Se duerme el cliente en el mensaje");
+			this.wait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-	
+
+	}
+
 
 	public void despertar ()
 	{
 		synchronized (this) {
 			this.notify();
-			System.out.println("Se despertó el cliente");
+			System.out.println("Se despertï¿½ el cliente");
 		}
 	}
-	
+
 	public int darMensaje()
 	{
 		return n;

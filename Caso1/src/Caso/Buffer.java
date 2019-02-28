@@ -31,11 +31,11 @@ public class Buffer {
 				}
 			}
 		}
-		System.out.println("El buffer no está lleno");
-		
+		System.out.println("El buffer no estï¿½ lleno");
+
 		synchronized (i){
 			buff.add(i);
-			System.out.println("Se añadió el mensaje " + i.darMensaje());
+			System.out.println("Se aï¿½adiï¿½ el mensaje " + i.darMensaje());
 			System.out.println("El cliente se va a dormir");
 			i.dormir();
 		}
