@@ -11,31 +11,7 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-
-		//		File fichero = new File("./datos/archivo.txt");
-		//		Scanner s = null;
-		//		
-		//		try {
-		//			// Leemos el contenido del fichero
-		//			s = new Scanner(fichero);
-		//
-		//			ArrayList<String> datos = new ArrayList<String>();
-		//			
-		//			// Leemos linea a linea el fichero
-		//			while (s.hasNextLine()) {
-		//				String linea = s.nextLine(); 	// Guardamos la linea en un String
-		//								
-		//				int dato = Integer.parseInt(linea);
-		//				
-		//				datos.add(linea);
-		//				
-		//				System.out.println(datos.size());
-		//			}
-		//
-		//		} catch (Exception ex) {
-		//			ex.getMessage();
-		//		} 
+	public static void main(String[] args) {
 
 		File archivo = null;
 		FileReader fr = null;
@@ -47,26 +23,26 @@ public class Main {
 			archivo = new File ("./datos/archivo.txt");
 			fr = new FileReader (archivo);
 			br = new BufferedReader(fr);
-
-			// Lectura del fichero
-			String linea;
-			while((linea=br.readLine()) != null)
-			{
-				System.out.println(linea);
-			}
-
 			
-			Buffer buffer = new Buffer(25);
-			for (int i = 0; i<1; i++)
+			int numClientes = Integer.parseInt(br.readLine());
+			int capacidadBuffer = Integer.parseInt(br.readLine());
+			int numServidores = Integer.parseInt(br.readLine());
+			int numMensajes = Integer.parseInt(br.readLine());
+			
+			Buffer buffer = new Buffer(capacidadBuffer);
+			for (int i = 0; i<numClientes; i++)
 			{
-				Cliente cliente = new Cliente(i+1, buffer);
+				Cliente cliente = new Cliente(numMensajes, buffer);
 				System.out.println("Se crea cliente " + i);
-				Servidor servidor = new Servidor(buffer);
-				System.out.println("Se crea servidor " + i);
-
 
 				cliente.start();
 				System.out.println("Se inicia el cliente");
+
+			}
+			
+			for (int i=0; i<numServidores; i++){
+				Servidor servidor = new Servidor(buffer);
+				System.out.println("Se crea servidor " + i);
 				servidor.start();
 				System.out.println("Se inicia el servidor");
 			}
