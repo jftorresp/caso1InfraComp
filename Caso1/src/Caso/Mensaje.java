@@ -10,7 +10,7 @@ public class Mensaje {
 
 	public void responder()
 	{
-		System.out.println("Respondï¿½ el mensaje");
+		System.out.println("Respondí el mensaje");
 		n++;
 		System.out.println(n);
 	}
@@ -32,7 +32,7 @@ public class Mensaje {
 	{
 		synchronized (this) {
 			this.notify();
-			System.out.println("Se despertï¿½ el cliente");
+			System.out.println("Se despertó el cliente");
 		}
 	}
 

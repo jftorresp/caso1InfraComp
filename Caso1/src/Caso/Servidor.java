@@ -13,17 +13,21 @@ public class Servidor extends Thread {
 
 	public void run()
 	{
-		while(true)
+		int i = 0;
+		while(true && i<1000000)
 		{
 //			System.out.println("Voy a retirar un mensaje plis");
 			mensaje = buffer.retirar();
 			if(mensaje!=null){
-				System.out.println("Retirï¿½Ec el mensaje " + mensaje.darMensaje() + " y lo voy a responder");
+				System.out.println("Retiré el mensaje " + mensaje.darMensaje() + " y lo voy a responder");
 				mensaje.responder();
 				mensaje.despertar();
+				i=0;
 			}
-			
+			i++;
 			Thread.yield();
 		}
+		System.out.println("Los servidores ya esperaron mucho tiempo por mensajes, se cierra la aplicación.");
+		System.exit(-1);
 	}
 }
